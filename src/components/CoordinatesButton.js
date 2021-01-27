@@ -1,15 +1,17 @@
-// Code CoordinatesButton Component Here
-import React from "react"
+import React, { Component } from "react";
 
-function onReceiveCoordinates(onReceiveCoordinates){
-  let coor=[]
-  function coordinate(){
-    let x=event.clientX
-    let y=event.clientY
-    coor.push(x,y)
+export default class CoordinateButton extends Component {
+  handleClick = (e) => {
+    let x = e.clientX;
+    let y = e.clientY;
+    let coordinate = [x, y];
+    this.props.onReceiveCoordinates(coordinate);
+  };
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleClick}>coor</button>
+      </div>
+    );
   }
-  return(
-    <button onClick="coordinate()"></button>
-    
-    )
 }
